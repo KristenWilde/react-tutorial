@@ -1,6 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class AddFishForm extends React.Component {
+  static propTypes = {
+    addFish: PropTypes.func,
+
+  }
+
   nameRef = React.createRef();
   priceRef = React.createRef();
   statusRef = React.createRef();
@@ -11,7 +17,7 @@ class AddFishForm extends React.Component {
     e.preventDefault();
     const fish = {
       name: this.nameRef.value.value,
-      price: parseInt(this.priceRef.value.value, 10),
+      price: Number(this.priceRef.value.value),
       status: this.statusRef.value.value,
       desc: this.descRef.value.value,
       image: this.imageRef.value.value
